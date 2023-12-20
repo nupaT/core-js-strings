@@ -503,7 +503,7 @@ function encodeToRot13(str) {
   let res = '';
 
   function encodeChar(letter, min, max) {
-    if (letter + 13 > max) {
+    if (letter + 13 >= max) {
       newCode = min + (13 + letter - max);
       res += String.fromCharCode(newCode);
     } else {
@@ -521,7 +521,7 @@ function encodeToRot13(str) {
     if (lettCode >= 97 && lettCode <= 123) {
       encodeChar(lettCode, 97, 123);
     }
-    if (str[i] === ' ') {
+    if (str[i].match(/\W/)) {
       res += str[i];
     }
   }
